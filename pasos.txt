@@ -1,3 +1,9 @@
 1: python -m venv .venv
 
 2: .\.venv\Scripts\activate 
+
+
+# 1. Crear el script con la diferencia detectada
+alembic revision --autogenerate -m "descripcion del cambio"
+# 2. Aplicarlo a la base de datos
+alembic upgrade head

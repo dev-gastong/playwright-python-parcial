@@ -1,9 +1,9 @@
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy import String, Float, Integer
 
-# 1. Clase Base para que SQLAlchemy reconozca los modelos
-class Base(DeclarativeBase):
-    pass
+from app.cfg.database import Base
+
+
 
 # 2. Definición de la Entidad (Tabla 'products')
 class ProductModel(Base):
@@ -13,6 +13,7 @@ class ProductModel(Base):
     nombre: Mapped[str] = mapped_column(String(100), nullable=False)
     precio: Mapped[float] = mapped_column(Float, nullable=False)
     stock: Mapped[int] = mapped_column(Integer, default=0)
+    numeros: Mapped[int] = mapped_column(Integer, default=20)
 
     def __repr__(self):
         return f"<Product(id={self.id}, nombre='{self.nombre}')>"

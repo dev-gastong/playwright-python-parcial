@@ -1,11 +1,12 @@
 # pyrefly: ignore [missing-import]
 from pydantic import BaseModel, Field
 
-class Evento(BaseModel):
+class ProductSchema(BaseModel):
+
     nombre: str = Field(min_length=3, max_length=50)
-    fecha: str = Field(pattern=r"\d{4}-\d{2}-\d{2}")
-    lugar: str
-    descripcion: str | None = None
+    precio: float = Field(gt=0)
+    stock: int = Field(ge=0)
+    
     
 
 
